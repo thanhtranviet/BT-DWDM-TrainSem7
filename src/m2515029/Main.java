@@ -65,14 +65,15 @@ public class Main {
 		
 		// Try with SVM
 		int typeOfKernelFunction = 2;
-		double cNumber = 1;
+		int cNumber = 1;
 		int bestTypeOfKernelFunction = 2;
 		double bestCNumber = 1;
 		maxAUC=0;
+		seed=1;
 
 		// cnumber from 0.5->1.5
-		for (int i = 0; i < 10; i++) {
-			cNumber += i;
+		for (int i = 0; i < 20; i++) {
+			cNumber++;
 			// kernel type from 0-3
 			for (int j = 2; j <= 3; j++) {
 				typeOfKernelFunction = j;
@@ -103,6 +104,7 @@ public class Main {
 		// Test with best value for SVM
 		// option for SVM
 		maxAUC=0;
+		seed=1;
 		String[] options = new String[6];
 		options[0] = "-K";
 		options[1] = String.valueOf(bestTypeOfKernelFunction);
